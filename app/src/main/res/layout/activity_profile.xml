@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/profil"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:orientation="vertical">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgProfil"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_camera" />
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textStyle="italic"
+                android:textSize="10sp"
+                android:text="Anda bisa mengganti foto"/>
+
+            <TextView
+                android:id="@+id/teksUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textAlignment="center"
+                android:text="username" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nama :"
+                android:textSize="12sp"
+                android:textStyle="italic" />
+            <TextView
+                android:id="@+id/teksNama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="nama" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Umur :"
+                android:textSize="12sp"
+                android:textStyle="italic" />
+            <TextView
+                android:id="@+id/teksUmur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="umur" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jenis Kelamin :"
+                android:textSize="12sp"
+                android:textStyle="italic" />
+            <TextView
+                android:id="@+id/teksJenkel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="jenkel" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_below="@+id/profil"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hasil Diagnosa :"/>
+            <TextView
+                android:id="@+id/hasilDiagnosa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="tipes"
+                android:textStyle="bold|italic"
+                android:textAlignment="center"/>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

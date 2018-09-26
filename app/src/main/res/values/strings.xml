@@ -1,0 +1,108 @@
+<resources>
+    <string name="app_name">Nissan Apps</string>
+    <string-array name="pertanyaanTipes">
+        <item>Apakah anda mengalami demam tinggi sampai 40°C?</item>
+        <item>Apa anda merasa kehilangan nafsu makan?</item>
+        <item>Apakah anda mengalami sakit kepala?</item>
+        <item>Apakah anda mengalami nyeri dan sakit pada otot?</item>
+        <item>Apakah terdapat ruam atau bintik-bintik merah pada kulit?</item>
+        <item>Apa anda mengalami diare?</item>
+        <item>Apa anda mengalami sembelit?</item>
+        <item>Apa anda mersa sakit Perut?</item>
+        <item>Apa anda muntah?</item>
+        <item>Apa badan anda terasa lemah dan lesu?</item>
+        <item>Apa anda mengalami penurunan berat badan secara drastis?</item>
+        <item>Apakah perut anda membesar/ membuncit?</item>
+        <item>Apa anda suka mengigau?</item>
+        <item>Apakah anda merasa susah membuka mata?</item>
+        <item>Apa anda mengalami bibir pecah-pecah?</item>
+        <item>Apakah warna urine anda lebih pekat?</item>
+        <item>Apa keseimbangan tubuh anda terasa terganggu?</item>
+        <item>Apa tubuh anda menggigil?</item>
+        <item>Apakah badan terus terasa lelah?</item>
+        <item>Apakah anda mengalami sakit tenggorokan?</item>
+        <item>Apa wajah anda berubah kemerahan?</item>
+        <item>Apa anda merasa mual-mual?</item>
+        <item>Apakah anda mengalami nyeri pada bagian belakang mata?</item>
+        <item>Apa anda mengalami kram pada perut?</item>
+        <item>Apa perut anda terasa kembung?</item>
+        <item>Apa anda kesulitan buang angin?</item>
+        <item>Apa anda mengalami pendarahan pada gusi?</item>
+        <item>Apa anda merasa nyeri pada tulang punggung?</item>
+        <item>Apa anda sering keluar keringat dingin?</item>
+        <item>Apa anda mengalami batuk berkepanjangan?</item>
+        <item>Apakah anda merasa nyeri di bagian dada?</item>
+        <item>Apakah anda sering mengalami sesak nafas?</item>
+        <item>Apa anda mengalami nyeri pada persendian?</item>
+        <item>Apa mulut anda terasa Pahit?</item>
+        <item>Apakah perut terasa Begah?</item>
+        <item>Apa anda merasa sulit menelan makanan?</item>
+        <item>Apa produksi air liur anda berlebihan?</item>
+        <item>Apa Feses anda berwarna kehitaman?</item>
+        <item>Apa anda sering kesemutan?</item>
+        <item>Apa jari dan kelopak mata berwarna kekuningan?</item>
+        <item>Apa kulit anda berwarna pucat?</item>
+        <item>Apakah anda mengalami rambut rontok?</item>
+        <item>Apa anda merasakan sakit di bagian bahu?</item>
+        <item>Apakah anda merasa kebas di tangan dan kaki?</item>
+        <item>Apa nafas anda terasa pendek-pendek?</item>
+        <item>Apakah anda mengalami Sesak Nafas?</item>
+        <item>Apa anda mengalami mata memerah dan pandangan kabur?</item>
+        <item>Apakah nafas anda terasa bau?</item>
+        <item>Apakah anda merasakan nyeri di bagian hati?</item>
+        <item>Apakah anda mengalami kantuk yang berkepanjangan?</item>
+    </string-array>
+    <string-array name="hasilTipes">
+        <item>Mengalami demam yang terus mengalami kenaikan di malam hari</item>
+        <item>Mengalami demam tinggi sampai 40°C</item>
+        <item>Kehilangan nafsu makan</item>
+        <item>Mengalami sakit kepala</item>
+        <item>Mengalami nyeri dan sakit pada otot</item>
+        <item>Terdapat ruam atau bintik-bintik merah pada kulit</item>
+        <item>Mengalami diare</item>
+        <item>Mengalami sembelit</item>
+        <item>Merasa sakit Perut</item>
+        <item>Muntah</item>
+        <item>Badan terasa lemah dan lesu</item>
+        <item>Mengalami penurunan berat badan secara drastis</item>
+        <item>Perut membesar/ membuncit</item>
+        <item>Suka mengigau</item>
+        <item>Susah membuka mata</item>
+        <item>Mengalami bibir pecah-pecah</item>
+        <item>Warna urine lebih pekat</item>
+        <item>Keseimbangan tubuh terganggu</item>
+        <item>Tubuh menggigil</item>
+        <item>Badan terus terasa lelah</item>
+        <item>Mengalami sakit tenggorokan</item>
+        <item>Wajah berubah kemerahan</item>
+        <item>Mual-mual</item>
+        <item>Mengalami nyeri pada bagian belakang mata</item>
+        <item>Mengalami kram pada perut</item>
+        <item>Perut terasa kembung</item>
+        <item>Kesulitan buang angin</item>
+        <item>Mengalami pendarahan pada gusi</item>
+        <item>Nyeri pada tulang punggung</item>
+        <item>Sering keluar keringat dingin</item>
+        <item>Mengalami batuk berkepanjangan</item>
+        <item>Nyeri di bagian dada</item>
+        <item>Mengalami sesak nafas</item>
+        <item>Mengalami nyeri pada persendian</item>
+        <item>Mulut terasa Pahit</item>
+        <item>Perut terasa Begah</item>
+        <item>Sulit menelan makanan</item>
+        <item>Produksi air liur anda berlebihan</item>
+        <item>Feses berwarna kehitaman</item>
+        <item>Sering kesemutan</item>
+        <item>Jari dan kelopak mata berwarna kekuningan</item>
+        <item>Kulit berwarna pucat</item>
+        <item>Mengalami rambut rontok</item>
+        <item>Sakit di bagian bahu</item>
+        <item>Kebas di tangan dan kaki</item>
+        <item>Nafas terasa pendek-pendek</item>
+        <item>Mengalami Sesak Nafas</item>
+        <item>Mata memerah dan pandangan kabur</item>
+        <item>Nafas terasa bau</item>
+        <item>Nyeri di bagian hati</item>
+        <item>Mengalami kantuk yang berkepanjangan</item>
+    </string-array>
+</resources>
