@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff">
@@ -11,14 +12,15 @@
         android:layout_height="wrap_content"
         android:text="Menu Utama\nProgres Kontrol Servis Kendaraan"
         android:layout_alignParentTop="true"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textColor="#3F51B5"
         android:layout_marginTop="30dp"
-        android:textAlignment="center"/>
+        android:textAlignment="center" />
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_centerInParent="true"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -76,7 +78,6 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tpensil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

@@ -16,13 +16,13 @@ import android.widget.Toast;
 public class Login extends AppCompatActivity {
     Button btnLogin, btnRegister;
     EditText editNik, editPassword;
-    UserDB userDB = null;
+    DB DB = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        userDB = new UserDB(this);
+        DB = new DB(this);
         btnLogin = findViewById(R.id.btnLogin);
         btnRegister = findViewById(R.id.btnRegister);
         editNik = findViewById(R.id.nik);
@@ -40,7 +40,7 @@ public class Login extends AppCompatActivity {
                 if (editNik.getText().toString().equals("") || editPassword.getText().toString().equals("")) {
                     Toast.makeText(Login.this, "Isi data dengan lengkap", Toast.LENGTH_LONG).show();
                 } else {
-                    userDB.login(editNik.getText().toString(), editPassword.getText().toString());
+                    DB.login(editNik.getText().toString(), editPassword.getText().toString());
                     final ProgressDialog progressDialog = new ProgressDialog(Login.this);
                     progressDialog.setMessage("Login ...");
                     progressDialog.setCancelable(false);

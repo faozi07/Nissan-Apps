@@ -14,17 +14,24 @@ public class MenuUtama extends AppCompatActivity {
 
     Button btnProfil,btnHasil,btnDiagnosis,btnLogout;
     SharedPreferences spLogin;
+    DB db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Beranda");
+        }
+
+        db = new DB(this);
 
         spLogin = getSharedPreferences(StaticVars.SP_LOGIN, MODE_PRIVATE);
         btnProfil = findViewById(R.id.btnProfile);
         btnProfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(MenuUtama.this, InputKendaraan.class));
             }
         });
         btnHasil = findViewById(R.id.btnHslDiagnosa);

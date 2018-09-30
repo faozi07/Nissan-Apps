@@ -17,7 +17,7 @@ public class Register extends AppCompatActivity {
     EditText editNik, editPassword, editNama;
     Button btnRegister;
     public static boolean isRegistered = false, registerSukses = false;
-    UserDB userDB = null;
+    DB DB = null;
 
     @Override
     protected void onResume() {
@@ -30,9 +30,9 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        userDB = new UserDB(this);
-        final SQLiteDatabase sqlDb = userDB.getWritableDatabase();
-        userDB.onCreate(sqlDb);
+        DB = new DB(this);
+        final SQLiteDatabase sqlDb = DB.getWritableDatabase();
+        DB.onCreate(sqlDb);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("Daftar");
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -56,7 +56,7 @@ public class Register extends AppCompatActivity {
                         editNik.getText().toString().equals("")) {
                     Toast.makeText(Register.this, "Isi data dengan lengkap", Toast.LENGTH_LONG).show();
                 } else {
-                    userDB.cekUser(editNik.getText().toString());
+                    DB.cekUser(editNik.getText().toString());
                     final ProgressDialog progressDialog = new ProgressDialog(Register.this);
                     progressDialog.setMessage("Mendaftar ...");
                     progressDialog.setCancelable(false);
@@ -67,7 +67,7 @@ public class Register extends AppCompatActivity {
                             if (isRegistered) {
                                 Toast.makeText(Register.this, "User sudah terdaftar, gunakan data user lain", Toast.LENGTH_LONG).show();
                             } else {
-                                userDB.insertUser(editNik.getText().toString(), editPassword.getText().toString(), editNama.getText().toString());
+                                DB.insertUser(editNik.getText().toString(), editPassword.getText().toString(), editNama.getText().toString());
                             }
                         }
                     }, 2000);

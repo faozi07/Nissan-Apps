@@ -11,19 +11,26 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class UserDB extends SQLiteOpenHelper {
+public class DB extends SQLiteOpenHelper {
 
-    // ===================================== TAMBAH KOMODITAS LAHAN ================================
     private static final String DATABASE_NAME = "user.db";
     private static final int DATABASE_VERSION = 1;
 
-    // ================================================ LAHAN ======================================
+    // ================================================ USER ======================================
     private static final String TABLE_NAME_USER = "nisanUser";
     private static final String NIK = "NIK";
     private static final String NAME = "NAME";
     private static final String PASSWORD = "PASSWORD";
 
-    public UserDB(Context context) {
+    // ================================================ KENDARAAN ======================================
+    private static final String TABLE_NAME_KENDARAAN = "nisanVehicle";
+    private static final String TGL_INPUT = "TGL_INPUT";
+    private static final String MEREK = "MEREK";
+    private static final String NOPOL = "NOPOL";
+    private static final String JANJI_SELESAI = "JANJI_SELESAI";
+    private static final String JENIS_KERJA = "JENIS_KERJA";
+
+    public DB(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -33,7 +40,14 @@ public class UserDB extends SQLiteOpenHelper {
             String sql = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME_USER + " (" + NIK + " INTEGER PRIMARY KEY, " + NAME + " TEXT null, " +
                     PASSWORD + " TEXT null);";
             Log.d("DataKomoditi ", "onCreate: " + sql);
+
+            String sql2 = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME_KENDARAAN + " (" + TGL_INPUT + " TEXT NULL, " +
+                    MEREK + " TEXT NULL, " + NOPOL + " TEXT NULL, " + JANJI_SELESAI + " TEXT NULL, " +
+                    JENIS_KERJA +" TEXT NOT NULL );";
+
+            Log.d("DataKomoditi ", "onCreate: " + sql2);
             db.execSQL(sql);
+            db.execSQL(sql2);
         } catch (Exception exp) {
             exp.printStackTrace();
         }
@@ -99,4 +113,33 @@ public class UserDB extends SQLiteOpenHelper {
         db.close();
     }
 
+    // ============================================== Kendaraan ==============================================
+    public void insertKendaraan(String tglInput, String merek, String nopol, String janjiSlsai, String jenisKerja) {
+        try {
+            SQLiteDatabase db = getWritableDatabase();
+            String sql = "INSERT INTO " + TABLE_NAME_KENDARAAN + " (" + TGL_INPUT + ", " + MEREK + ", "+ NOPOL + ", "+ JANJI_SELESAI + ", "+
+                    JENIS_KERJA +") VALUES ('"
+                    + tglInput + "', '" + merek + "', '" + nopol + "', '" + janjiSlsai + "', '" + jenisKerja + "');";
+            db.execSQL(sql);
+            InputKendaraan.berhasilAdd = true;
+        } catch (Exception exp) {
+            exp.printStackTrace();
+            InputKendaraan.berhasilAdd = false;
+        }
+    }
+
+    @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
+    public void listKendaraan() {
+        SQLiteDatabase db = getWritableDatabase();
+        @SuppressLint("Recycle")
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME_KENDARAAN, null);
+        if (cursor.moveToFirst()) {
+            do {
+                Log.i("list ",cursor.getString(1));
+            } while (cursor.moveToNext());
+        }
+        db.close();
+    }
+
 }
+

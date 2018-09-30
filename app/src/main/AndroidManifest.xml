@@ -14,8 +14,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MenuUtama"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -38,6 +37,8 @@
         <activity
             android:name=".Register"
             android:screenOrientation="portrait" />
+        <activity android:name=".InputKendaraan" />
+        <activity android:name=".UpdateKendaraan"></activity>
     </application>
 
 </manifest>
