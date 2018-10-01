@@ -135,7 +135,19 @@ public class DB extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME_KENDARAAN, null);
         if (cursor.moveToFirst()) {
             do {
-                Log.i("list ",cursor.getString(1));
+                modelKendaraan modKend = new modelKendaraan();
+                modKend.setTglInput(cursor.getString(0));
+                modKend.setMerek(cursor.getString(1));
+                modKend.setNopol(cursor.getString(2));
+                modKend.setTglJanji(cursor.getString(3));
+
+                Log.i("Listttt 0",cursor.getString(0));
+                Log.i("Listttt 1",cursor.getString(1));
+                Log.i("Listttt 2",cursor.getString(2));
+                Log.i("Listttt 3",cursor.getString(3));
+                Log.i("Listttt 4",cursor.getString(4));
+
+                ListKendaraan.arrKendaraan.add(modKend);
             } while (cursor.moveToNext());
         }
         db.close();

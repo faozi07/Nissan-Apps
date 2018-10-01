@@ -199,7 +199,5 @@ public class InputKendaraan extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        DB db = new DB(this);
-        db.listKendaraan();
     }
 }

@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class MenuUtama extends AppCompatActivity {
 
-    Button btnProfil,btnHasil,btnDiagnosis,btnLogout;
+    Button btnInput,btnUpdate,btnStatus,btnLogout;
     SharedPreferences spLogin;
     DB db;
     @Override
@@ -27,25 +27,25 @@ public class MenuUtama extends AppCompatActivity {
         db = new DB(this);
 
         spLogin = getSharedPreferences(StaticVars.SP_LOGIN, MODE_PRIVATE);
-        btnProfil = findViewById(R.id.btnProfile);
-        btnProfil.setOnClickListener(new View.OnClickListener() {
+        btnInput = findViewById(R.id.btnInput);
+        btnInput.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MenuUtama.this, InputKendaraan.class));
             }
         });
-        btnHasil = findViewById(R.id.btnHslDiagnosa);
-        btnHasil.setOnClickListener(new View.OnClickListener() {
+        btnUpdate = findViewById(R.id.btnUpdate);
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
-        btnDiagnosis = findViewById(R.id.btnDiagnosa);
-        btnDiagnosis.setOnClickListener(new View.OnClickListener() {
+        btnStatus = findViewById(R.id.btnStatus);
+        btnStatus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(MenuUtama.this, ListKendaraan.class));
             }
         });
         btnLogout = findViewById(R.id.btnLogout);

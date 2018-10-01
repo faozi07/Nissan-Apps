@@ -33,7 +33,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnProfile"
+                android:id="@+id/btnInput"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -42,7 +42,7 @@
                 android:textColor="#fff" />
 
             <Button
-                android:id="@+id/btnDiagnosa"
+                android:id="@+id/btnStatus"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -58,7 +58,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnHslDiagnosa"
+                android:id="@+id/btnUpdate"
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"

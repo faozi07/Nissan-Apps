@@ -38,7 +38,8 @@
             android:name=".Register"
             android:screenOrientation="portrait" />
         <activity android:name=".InputKendaraan" />
-        <activity android:name=".UpdateKendaraan"></activity>
+        <activity android:name=".UpdateKendaraan" />
+        <activity android:name=".ListKendaraan"></activity>
     </application>
 
 </manifest>
