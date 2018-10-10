@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText"
+    android:background="#fff"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Detail Info Kendaraan"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="15sp"
+        android:layout_marginBottom="20sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Tanggal Masuk" />
+
+    <TextView
+        android:id="@+id/teksTglMasuk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tanggal Masuk"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:text="Merek" />
+
+    <TextView
+        android:id="@+id/teksMerk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Merek"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:text="Nomor Polisi" />
+
+    <TextView
+        android:id="@+id/teksNopol"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nopol"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:text="Janji Selesai" />
+
+    <TextView
+        android:id="@+id/teksJanji"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Janji Selesai"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:text="Jenis Pekerjaan" />
+
+    <TextView
+        android:id="@+id/teksJenkerja"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jenis Pekerjaan"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/btnClose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:background="@color/colorPrimary"
+        android:text="Tutup"
+        android:textColor="#fff" />
+</LinearLayout>

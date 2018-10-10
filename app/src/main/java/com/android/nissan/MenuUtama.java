@@ -38,7 +38,7 @@ public class MenuUtama extends AppCompatActivity {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(MenuUtama.this, UpdateKendaraan.class));
             }
         });
         btnStatus = findViewById(R.id.btnStatus);

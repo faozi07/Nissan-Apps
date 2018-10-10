@@ -7,6 +7,8 @@ public class modelKendaraan {
     private String tglJanji;
     private String jnsKerja;
 
+    private String status;
+
     public String getTglInput() {
         return tglInput;
     }
@@ -45,5 +47,13 @@ public class modelKendaraan {
 
     public void setJnsKerja(String jnsKerja) {
         this.jnsKerja = jnsKerja;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

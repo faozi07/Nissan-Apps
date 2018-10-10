@@ -5,13 +5,11 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -127,7 +125,7 @@ public class InputKendaraan extends AppCompatActivity {
                 progressDialog.setCancelable(false);
                 progressDialog.show();
                 DB db = new DB(InputKendaraan.this);
-                db.insertKendaraan(editTgl.getText().toString(), spinMerk.getSelectedItem().toString(), editNopol.getText().toString(),
+                db.insertKendaraan(editTgl.getText().toString(), spinMerk.getSelectedItem().toString(), editNopol.getText().toString(), "New",
                         editJanji.getText().toString(), editJenisKerja.getText().toString());
                 new Handler().postDelayed(new Runnable() {
                     @Override

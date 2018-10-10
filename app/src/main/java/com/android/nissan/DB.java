@@ -27,6 +27,7 @@ public class DB extends SQLiteOpenHelper {
     private static final String TGL_INPUT = "TGL_INPUT";
     private static final String MEREK = "MEREK";
     private static final String NOPOL = "NOPOL";
+    private static final String STATUS = "STATUS";
     private static final String JANJI_SELESAI = "JANJI_SELESAI";
     private static final String JENIS_KERJA = "JENIS_KERJA";
 
@@ -42,7 +43,7 @@ public class DB extends SQLiteOpenHelper {
             Log.d("DataKomoditi ", "onCreate: " + sql);
 
             String sql2 = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME_KENDARAAN + " (" + TGL_INPUT + " TEXT NULL, " +
-                    MEREK + " TEXT NULL, " + NOPOL + " TEXT NULL, " + JANJI_SELESAI + " TEXT NULL, " +
+                    MEREK + " TEXT NULL, " + NOPOL + " TEXT NULL, " + STATUS + " TEXT NULL, " + JANJI_SELESAI + " TEXT NULL, " +
                     JENIS_KERJA +" TEXT NOT NULL );";
 
             Log.d("DataKomoditi ", "onCreate: " + sql2);
@@ -114,18 +115,58 @@ public class DB extends SQLiteOpenHelper {
     }
 
     // ============================================== Kendaraan ==============================================
-    public void insertKendaraan(String tglInput, String merek, String nopol, String janjiSlsai, String jenisKerja) {
+    public void insertKendaraan(String tglInput, String merek, String nopol, String status, String janjiSlsai, String jenisKerja) {
         try {
             SQLiteDatabase db = getWritableDatabase();
-            String sql = "INSERT INTO " + TABLE_NAME_KENDARAAN + " (" + TGL_INPUT + ", " + MEREK + ", "+ NOPOL + ", "+ JANJI_SELESAI + ", "+
-                    JENIS_KERJA +") VALUES ('"
-                    + tglInput + "', '" + merek + "', '" + nopol + "', '" + janjiSlsai + "', '" + jenisKerja + "');";
+            String sql = "INSERT INTO " + TABLE_NAME_KENDARAAN + " (" + TGL_INPUT + ", " + MEREK + ", "+ NOPOL + ", "+ STATUS + ", "+
+                    JANJI_SELESAI + ", "+ JENIS_KERJA +") VALUES ('"
+                    + tglInput + "', '" + merek + "', '" + nopol + "', '" + status + "', '" + janjiSlsai + "', '" + jenisKerja + "');";
             db.execSQL(sql);
             InputKendaraan.berhasilAdd = true;
         } catch (Exception exp) {
             exp.printStackTrace();
             InputKendaraan.berhasilAdd = false;
         }
+    }
+
+    public void updateKendaraan(String nopol, String status) {
+        try {
+            SQLiteDatabase db = getWritableDatabase();
+            String sql = "UPDATE " + TABLE_NAME_KENDARAAN + " SET "+ STATUS +"='"+ status +"' WHERE "+ NOPOL +"='" + nopol + "';";
+            db.execSQL(sql);
+            UpdateKendaraan.suksesUpdate = true;
+        } catch (Exception exp) {
+            exp.printStackTrace();
+            UpdateKendaraan.suksesUpdate = false;
+        }
+    }
+
+    @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
+    public void cekKendaraan() {
+        SQLiteDatabase db = getWritableDatabase();
+        @SuppressLint("Recycle")
+        Cursor cursor = db.rawQuery("SELECT "+ NOPOL +" FROM " + TABLE_NAME_KENDARAAN, null);
+        if (cursor.moveToFirst()) {
+            do {
+//                modKend.setNopol(cursor.getString(0));
+
+            } while (cursor.moveToNext());
+        }
+        db.close();
+    }
+
+    @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
+    public void listKendaraanByNopol(String nopol) {
+        SQLiteDatabase db = getReadableDatabase();
+        @SuppressLint("Recycle")
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME_KENDARAAN + " WHERE "+ NOPOL + "='"+ nopol + "'", null);
+        if (cursor.moveToFirst()) {
+            do {
+                UpdateKendaraan.merek = cursor.getString(1);
+                UpdateKendaraan.status = cursor.getString(3);
+            } while (cursor.moveToNext());
+        }
+        db.close();
     }
 
     @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
@@ -139,15 +180,23 @@ public class DB extends SQLiteOpenHelper {
                 modKend.setTglInput(cursor.getString(0));
                 modKend.setMerek(cursor.getString(1));
                 modKend.setNopol(cursor.getString(2));
-                modKend.setTglJanji(cursor.getString(3));
-
-                Log.i("Listttt 0",cursor.getString(0));
-                Log.i("Listttt 1",cursor.getString(1));
-                Log.i("Listttt 2",cursor.getString(2));
-                Log.i("Listttt 3",cursor.getString(3));
-                Log.i("Listttt 4",cursor.getString(4));
+                modKend.setStatus(cursor.getString(3));
+                modKend.setTglJanji(cursor.getString(4));
+                modKend.setJnsKerja(cursor.getString(5));
 
                 ListKendaraan.arrKendaraan.add(modKend);
+            } while (cursor.moveToNext());
+        }
+        db.close();
+    }
+
+    public void listNopol() {
+        SQLiteDatabase db = getWritableDatabase();
+        @SuppressLint("Recycle")
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME_KENDARAAN, null);
+        if (cursor.moveToFirst()) {
+            do {
+                UpdateKendaraan.arrNopol.add(cursor.getString(2));
             } while (cursor.moveToNext());
         }
         db.close();

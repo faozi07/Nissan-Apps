@@ -7,11 +7,13 @@ package com.android.nissan;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -26,9 +28,14 @@ public class KendaraanAdapter extends RecyclerView.Adapter {
     private final int VIEW_ITEM = 1;
     private int lastPosition = -1;
 
-    public KendaraanAdapter(Activity act, ArrayList<modelKendaraan> data) {
+    private AlertDialog.Builder dialogs;
+    private AlertDialog dialogListDetail;
+
+    KendaraanAdapter(Activity act, ArrayList<modelKendaraan> data) {
         activity = act;
         items = data;
+        dialogs = new AlertDialog.Builder(activity);
+        dialogListDetail = dialogs.create();
     }
 
     @Override
@@ -39,7 +46,7 @@ public class KendaraanAdapter extends RecyclerView.Adapter {
 
     public static class BrandViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tTgl, tNopol, tMerk, tJanji;
+        TextView tTgl, tNopol, tMerk, tJanji, tStatus;
         CardView cardView;
 
         BrandViewHolder(View v) {
@@ -48,11 +55,13 @@ public class KendaraanAdapter extends RecyclerView.Adapter {
             tTgl = v.findViewById(R.id.teksTgl);
             tMerk = v.findViewById(R.id.teksMerk);
             tNopol = v.findViewById(R.id.teksNopol);
+            tStatus = v.findViewById(R.id.teksStatus);
             tJanji = v.findViewById(R.id.teksJanji);
             cardView = v.findViewById(R.id.card_view);
         }
     }
 
+    @SuppressWarnings("ConstantConditions")
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -77,12 +86,20 @@ public class KendaraanAdapter extends RecyclerView.Adapter {
             ((BrandViewHolder) holder).tTgl.setText(mrt.getTglInput());
             ((BrandViewHolder) holder).tMerk.setText(mrt.getMerek());
             ((BrandViewHolder) holder).tNopol.setText(mrt.getNopol());
+            ((BrandViewHolder) holder).tStatus.setText(mrt.getStatus());
             ((BrandViewHolder) holder).tJanji.setText(mrt.getTglJanji());
+
+            if (mrt.getStatus().equals("Selesai")) {
+                ((BrandViewHolder) holder).tStatus.setTextColor(activity.getResources().getColor(R.color.colorAccent));
+            } else {
+                ((BrandViewHolder) holder).tStatus.setTextColor(activity.getResources().getColor(R.color.colorRed));
+            }
+
             ((BrandViewHolder) holder).cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
+                public void onClick(View v) {
                     mrt = items.get(position);
-//                    activity.startActivity(new Intent(activity, DetailJadwal.class));
+                    dialogListDetail(mrt.getTglInput(), mrt.getMerek(), mrt.getNopol(), mrt. getTglJanji(), mrt.getJnsKerja());
                 }
             });
         }
@@ -91,6 +108,40 @@ public class KendaraanAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemCount() {
         return items.size();
+    }
+
+    @SuppressLint("InflateParams")
+    private void dialogListDetail(final String tgl, final String merk, final String nopol, final String janji, final String jenis) {
+        LayoutInflater inflater;
+        View dialog_layout;
+        inflater = LayoutInflater.from(activity);
+        dialog_layout = inflater.inflate(R.layout.dialog_list_detail, null);
+        Button btnClose = dialog_layout.findViewById(R.id.btnClose);
+        TextView teksTgl = dialog_layout.findViewById(R.id.teksTglMasuk);
+        TextView teksMerk = dialog_layout.findViewById(R.id.teksMerk);
+        TextView teksNopol = dialog_layout.findViewById(R.id.teksNopol);
+        TextView teksJanji = dialog_layout.findViewById(R.id.teksJanji);
+        TextView teksJenis = dialog_layout.findViewById(R.id.teksJenkerja);
+
+        dialogs.setView(dialog_layout);
+        dialogs.setCancelable(true);
+        dialogListDetail = dialogs.create();
+        if (!dialogListDetail.isShowing()) {
+            dialogListDetail.show();
+        }
+
+        teksTgl.setText(tgl);
+        teksMerk.setText(merk);
+        teksNopol.setText(nopol);
+        teksJanji.setText(janji);
+        teksJenis.setText(jenis);
+
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogListDetail.dismiss();
+            }
+        });
     }
 
 }

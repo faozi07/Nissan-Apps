@@ -47,7 +47,6 @@ public class ListKendaraan extends AppCompatActivity {
         pDialog.setCancelable(false);
         pDialog.show();
 
-
         DB db = new DB(this);
         db.listKendaraan();
 
