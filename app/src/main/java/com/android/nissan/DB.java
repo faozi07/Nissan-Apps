@@ -172,6 +172,9 @@ public class DB extends SQLiteOpenHelper {
     @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
     public void listKendaraan() {
         SQLiteDatabase db = getWritableDatabase();
+        if (ListKendaraan.arrKendaraan.size() > 0) {
+            ListKendaraan.arrKendaraan.clear();
+        }
         @SuppressLint("Recycle")
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME_KENDARAAN, null);
         if (cursor.moveToFirst()) {
