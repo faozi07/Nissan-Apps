@@ -87,4 +87,10 @@ public class ListKendaraan extends AppCompatActivity {
         onBackPressed();
         return super.onSupportNavigateUp();
     }
+
+    @Override
+    public void onBackPressed() {
+        SoundBtn.soundBtn(ListKendaraan.this);
+        finish();
+    }
 }

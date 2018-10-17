@@ -44,6 +44,7 @@ public class Register extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SoundBtn.soundBtn(Register.this);
                 View view = getCurrentFocus();
                 if (view != null) {
                     InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -90,6 +91,7 @@ public class Register extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         finish();
+        SoundBtn.soundBtn(Register.this);
     }
 
     @Override

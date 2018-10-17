@@ -30,6 +30,7 @@ public class Login extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SoundBtn.soundBtn(Login.this);
                 View view = getCurrentFocus();
                 if (view != null) {
                     InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -58,6 +59,7 @@ public class Login extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SoundBtn.soundBtn(Login.this);
                 startActivity(new Intent(Login.this, Register.class));
             }
         });
@@ -75,5 +77,11 @@ public class Login extends AppCompatActivity {
         } else {
             Toast.makeText(Login.this, "Login gagal, silahkan coba lagi", Toast.LENGTH_LONG).show();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        SoundBtn.soundBtn(Login.this);
+        finish();
     }
 }

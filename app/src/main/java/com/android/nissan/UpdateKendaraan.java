@@ -74,6 +74,7 @@ public class UpdateKendaraan extends AppCompatActivity {
         editNopol.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SoundBtn.soundBtn(UpdateKendaraan.this);
                 dialogListNopol();
             }
         });
@@ -81,6 +82,7 @@ public class UpdateKendaraan extends AppCompatActivity {
         btnUbah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SoundBtn.soundBtn(UpdateKendaraan.this);
                 db.updateKendaraan(editNopol.getText().toString(), spinStatus.getSelectedItem().toString());
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -158,6 +160,12 @@ public class UpdateKendaraan extends AppCompatActivity {
         return super.onSupportNavigateUp();
     }
 
+    @Override
+    public void onBackPressed() {
+        SoundBtn.soundBtn(UpdateKendaraan.this);
+        finish();
+    }
+
     // ========================== Dialog List Nopol =============================
     @SuppressLint("InflateParams")
     private void dialogListNopol() {
@@ -181,6 +189,7 @@ public class UpdateKendaraan extends AppCompatActivity {
         listNopol.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                SoundBtn.soundBtn(UpdateKendaraan.this);
                 db.listKendaraanByNopol(listNopol.getItemAtPosition(position).toString());
                 for (int i=0; i<arrStatus.length;i++) {
                     if (arrStatus[i].equals(status)) {
@@ -199,6 +208,7 @@ public class UpdateKendaraan extends AppCompatActivity {
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SoundBtn.soundBtn(UpdateKendaraan.this);
                 dialogListNopol.dismiss();
             }
         });

@@ -120,6 +120,7 @@ public class InputKendaraan extends AppCompatActivity {
         btnSimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SoundBtn.soundBtn(InputKendaraan.this);
                 final ProgressDialog progressDialog = new ProgressDialog(InputKendaraan.this);
                 progressDialog.setMessage("Input Kendaraan");
                 progressDialog.setCancelable(false);
@@ -196,6 +197,7 @@ public class InputKendaraan extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        SoundBtn.soundBtn(InputKendaraan.this);
+        finish();
     }
 }

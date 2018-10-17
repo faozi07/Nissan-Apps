@@ -31,6 +31,7 @@ public class MenuUtama extends AppCompatActivity {
         btnInput.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SoundBtn.soundBtn(MenuUtama.this);
                 startActivity(new Intent(MenuUtama.this, InputKendaraan.class));
             }
         });
@@ -38,6 +39,7 @@ public class MenuUtama extends AppCompatActivity {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SoundBtn.soundBtn(MenuUtama.this);
                 startActivity(new Intent(MenuUtama.this, UpdateKendaraan.class));
             }
         });
@@ -45,6 +47,7 @@ public class MenuUtama extends AppCompatActivity {
         btnStatus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SoundBtn.soundBtn(MenuUtama.this);
                 startActivity(new Intent(MenuUtama.this, ListKendaraan.class));
             }
         });
@@ -52,12 +55,14 @@ public class MenuUtama extends AppCompatActivity {
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SoundBtn.soundBtn(MenuUtama.this);
                 showDialog();
             }
         });
     }
     @Override
     public void onBackPressed() {
+        SoundBtn.soundBtn(MenuUtama.this);
         finish();
     }
     private void showDialog(){
@@ -69,6 +74,7 @@ public class MenuUtama extends AppCompatActivity {
                 .setCancelable(false)
                 .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {
+                        SoundBtn.soundBtn(MenuUtama.this);
                         SharedPreferences.Editor loginEditor = spLogin.edit();
                         loginEditor.clear();
                         loginEditor.apply();
@@ -78,6 +84,7 @@ public class MenuUtama extends AppCompatActivity {
                 })
                 .setNegativeButton("Tidak",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        SoundBtn.soundBtn(MenuUtama.this);
                         dialog.cancel();
                     }
                 });

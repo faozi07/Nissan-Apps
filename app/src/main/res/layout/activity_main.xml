@@ -83,5 +83,5 @@
         android:layout_alignParentBottom="true"
         android:gravity="center"
         android:textSize="11sp"
-        android:text="Aplikasi Progres Kontrol Servis Kendaraan\nPT. Nissan Indonesia\nCopyright © 2018" />
+        android:text="Aplikasi Progres Kontrol Servis Kendaraan\nPT. Indomobil Trada Nasional\nCopyright © 2018" />
 </RelativeLayout>

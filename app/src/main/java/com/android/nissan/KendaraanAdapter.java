@@ -99,6 +99,7 @@ public class KendaraanAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onClick(View v) {
                     mrt = items.get(position);
+                    SoundBtn.soundBtn(activity);
                     dialogListDetail(mrt.getTglInput(), mrt.getMerek(), mrt.getNopol(), mrt. getTglJanji(), mrt.getJnsKerja());
                 }
             });
@@ -139,6 +140,7 @@ public class KendaraanAdapter extends RecyclerView.Adapter {
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SoundBtn.soundBtn(activity);
                 dialogListDetail.dismiss();
             }
         });

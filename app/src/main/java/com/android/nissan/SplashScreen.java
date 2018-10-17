@@ -20,8 +20,8 @@ public class SplashScreen extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-//        mpSound1 = MediaPlayer.create(SplashScreen.this, R.raw.splashscreen);
-//        mpSound1.start();
+        mpSound1 = MediaPlayer.create(SplashScreen.this, R.raw.splashscreen);
+        mpSound1.start();
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -33,7 +33,7 @@ public class SplashScreen extends AppCompatActivity {
                     startActivity(new Intent(SplashScreen.this, MenuUtama.class));
                 }
             }
-        }, 1000);
+        }, 5000);
 
     }
 }
